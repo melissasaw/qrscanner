@@ -1,0 +1,31 @@
+<h1>Hello World :)</h1>
+
+<h3>This is Melissa's QR Code Scanner Trial</h3>
+
+
+<!-- <button onclick="createQRCode()">Create QR Code</button><br/> -->
+<!-- This is the text that its going to be converted into a QR code -->
+<input type="text" name="text" id="text">
+ 
+<hr/>
+<!-- Easy to embed a QR code -->
+<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="" />
+
+<hr/>
+	<%= form_for :qr_code, url: create_qrcode_path do |f| %>
+	  <%= f.label :text %>
+	  <%= f.text_field :text %>
+	  <%= f.submit %>
+	<% end %>
+
+<hr/>
+
+<h2>QR Code Reader</h2>
+
+<input type=text class=qrcode-text>
+<label class=qrcode-text-btn>
+   <input type=file
+         accept="image/*"
+         capture=environment
+         tabindex=-1>
+</label>
