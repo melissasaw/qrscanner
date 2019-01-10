@@ -69,3 +69,6 @@ gem 'rqrcode-with-patches', '~> 0.5.4'
 
 # byebug
 gem 'byebug'
+
+# has_secure_password
+gem 'bcrypt', '~> 3.1.7'
