@@ -3,6 +3,6 @@ Rails.application.routes.draw do
    
 	post 'create_qrcode', to: 'users#create_qrcode'
 
-   resources :users
-   root 'welcome#index'
+	resources :users
+	root 'welcome#index'
 end
