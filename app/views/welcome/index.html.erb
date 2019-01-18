@@ -1,9 +1,64 @@
+<body class ="welcome-body">
+
 <div class= "container">
 	<h1>Welcome to the QR Code Homepage</h1>
 </div>
 
+<!-- Login form, if logged in then dont show -->
 
-<div class="container">
+<div class="container margin-top">
+
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				<!-- div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div> -->
+			</div>
+			<div class="card-body">
+				<form action="/log_in" method="post">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="username" name="email">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password" name="password">
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="/users/new">Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password? Doesn't work yet!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class=" container container-tempo">
 	<p>Click below link to go to QR code scanner!</p>
 	<%=link_to "QR Scanner", users_path%>
 </div>
+
+</body>

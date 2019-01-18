@@ -26,8 +26,13 @@
   </head>
 
   <body>
+    <!-- This is for flashing status if you ever need it :) -->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
 
-    <%=link_to "Sign Up",new_user_path%>
+
+    <%=button_to "Sign Out",log_out_path%>
 
     <%= yield %>
   </body>
