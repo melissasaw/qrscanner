@@ -27,7 +27,6 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 
 	# Sign in section
 	def log_in
-		byebug
 		email = signin_params[:email]
 
 		if user = User.find_by(email: email)
@@ -39,6 +38,7 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 				session[:user_id]=user.id
 				redirect_to root_path
 				flash[:success] = "Successful Log-in"
+				byebug
 			else
 				flash[:info] ="Wrong password. Please try again."
 			end
@@ -54,7 +54,7 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 	end
 
 	def log_out
-		byebug
+		
 		session[:user_id]=nil
 		redirect_to root_path
 	end

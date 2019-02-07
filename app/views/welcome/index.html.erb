@@ -5,7 +5,7 @@
 </div>
 
 <!-- Login form, if logged in then dont show -->
-
+<%if logged_in? == false%>
 <div class="container margin-top">
 
 	<div class="d-flex justify-content-center h-100">
@@ -53,6 +53,11 @@
 		</div>
 	</div>
 </div>
+<%else%>
+	<div class="container"> 
+		<p>Hello <%=current_user.first_name%></p>
+	</div>
+<%end%>
 
 
 
