@@ -4,8 +4,8 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 	def index
 	end
 
+	# This is the QR code api that sends the request
 	def create_qrcode
-		byebug
 		@qr = RQRCode::QRCode.new( qr_code_params[:text], size: 4)
 	end
 
@@ -38,7 +38,6 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 				session[:user_id]=user.id
 				redirect_to root_path
 				flash[:success] = "Successful Log-in"
-				byebug
 			else
 				flash[:info] ="Wrong password. Please try again."
 			end
