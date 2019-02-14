@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 	post 'log_in', to: 'users#log_in'
 	post 'log_out', to: 'users#log_out'
 	resources :users
+	resources :cases
 	root 'welcome#index'
 end

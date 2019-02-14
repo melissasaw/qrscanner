@@ -7,6 +7,7 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 	# This is the QR code api that sends the request
 	def create_qrcode
 		@qr = RQRCode::QRCode.new( qr_code_params[:text], size: 4)
+		byebug 
 	end
 
 	def new
