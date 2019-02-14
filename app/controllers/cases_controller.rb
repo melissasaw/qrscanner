@@ -11,8 +11,9 @@ class CasesController < ApplicationController
 			byebug
 			#Generating QR code that carries the id of case with special word in front
 			@qr = RQRCode::QRCode.new("qrscannertest"+ @case.id.to_s, size: 4)
-
 		else
+			flash[:info] = "Whoopss, something went wrong. Case was not created!"
+			render template: "/cases/new"
 		end
 
 	end
