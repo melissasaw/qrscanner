@@ -31,9 +31,9 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
-
+  <%if logged_in? == true%>
     <%=button_to "Sign Out",log_out_path%>
-
+  <%end%>
     <%= yield %>
   </body>
 </html>

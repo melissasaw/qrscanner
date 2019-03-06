@@ -7,6 +7,13 @@
 
 	<%= form_for Case.new do |form| %>
 
+		<!-- Serial number would follow the case_id with case_type, this would be done in controller -->
+		
+		<!-- User automatically get registered -->
+		<!-- User selects from the possible case types, which would be automatically linked to all its unique tasks -->
+		<!--  -->
+
+
 		<div class="form-group">
 			<label for="serial_number">Serial Number*</label>
 			<%= form.text_field :serial_number, class: 'form-control', placeholder: 'Serial Number' %>
