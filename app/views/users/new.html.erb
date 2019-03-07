@@ -1,0 +1,16 @@
+<div class= "container">
+
+	<h3>Sign Up here! :)</h3>	
+
+	<div class= "container full-height">
+	
+    <%= form_for User.new do |form| %>
+      <%= render partial: '/users/form', object: form %>
+
+      <div class="submit-field">
+        <%= form.submit class:"btn btn-primary" %>
+      </div>
+
+    <% end %>
+
+</div>

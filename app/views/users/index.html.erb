@@ -1,31 +1,48 @@
-<h1>Hello World :)</h1>
+<!-- Home button -->
+<div class="container">
+	<%=link_to "Home", root_path%>
+</div>
 
-<h3>This is Melissa's QR Code Scanner Trial</h3>
 
+<div class="container">
+	<%=link_to "Create a Case", new_case_path%>
+</div>
+<div class= "container">
+	<h1>Hello World :)</h1>
+	<h3>This is Melissa's QR Code Maker and Decoder Trial</h3>
+</div>
 
-<!-- <button onclick="createQRCode()">Create QR Code</button><br/> -->
-<!-- This is the text that its going to be converted into a QR code -->
-<input type="text" name="text" id="text">
- 
 <hr/>
-<!-- Easy to embed a QR code -->
-<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="" />
+<div class= "container">
+	<!-- Easy to embed a QR code -->
+	<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="" />
+</div>
 
 <hr/>
+
+<div class="container">
+	<h2>QR Code Maker</h2>
+	<p>This can be place inside case object "create", so a QR code is created if a case object is created!</p>
 	<%= form_for :qr_code, url: create_qrcode_path do |f| %>
 	  <%= f.label :text %>
 	  <%= f.text_field :text %>
 	  <%= f.submit %>
 	<% end %>
 
+</div>
+
 <hr/>
 
-<h2>QR Code Reader</h2>
+<div class="container">
 
-<input type=text class=qrcode-text>
-<label class=qrcode-text-btn>
-   <input type=file
-         accept="image/*"
-         capture=environment
-         tabindex=-1>
-</label>
+	<h2>QR Code Reader</h2>
+
+	<input type=text class=qrcode-text>
+	<label class=qrcode-text-btn>
+	   <input type=file
+	         accept="image/*"
+	         capture=environment
+	         tabindex=-1>
+	</label>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="container margin-top">
+	<!-- Trying to create profile page for user. -->
+	<h2>Case <%=@case.id%></h2>
+</div>
+
+<div class= "container">
+	<h3>Procedures for 
+		<%case @case.case_type%>
+			<%when 0%>
+			Sunshines
+			<%when 1%>
+			Crowns
+			<%when 2%>
+			Retainer
+			<%when 3%>
+			Brace
+			<%when 4%>
+			Babies
+		<%else%>
+			Error: case type not recognised.
+		<%end%>
+	.</h3>
+	<br/>
+</div>
+
+<!-- Show all tasks for the case -->
+<div class="container">
+	<%@tasks.each_with_index do |tasks,i|%>
+		Task <%=i+1%> : <%=tasks.description%><br/>
+	<%end%>
+</div>
+
+<hr/>
+
