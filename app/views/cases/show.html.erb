@@ -3,7 +3,6 @@
 	<h2>Case <%=@case.id%></h2>
 </div>
 
-
 <div class= "container">
 	<h3>Procedures for 
 		<%case @case.case_type%>
@@ -22,7 +21,18 @@
 		<%end%>
 	.</h3>
 	<br/>
+</div>
 
+<div class="container">
+	<%@tasks.each_with_index do |tasks,i|%>
+		Task <%=i+1%> : <%=tasks.description%><br/>
+	<%end%>
+</div>
+
+<hr/>
+
+
+<div class="container">
 	<%if @case.case_type == 1%>
 	Task 1: Get the digital scan <br/>
 	Task 2: Make a Mould<br/>
@@ -56,3 +66,4 @@
 	No detailed procedure assigned to this Task.
 	<%end%>
 </div>
+

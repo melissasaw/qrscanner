@@ -11,12 +11,38 @@ class CasesController < ApplicationController
 
 			# if case is save, only assign serial number.
 			@case.serial_number = "ORTHO"+ @case.case_type.to_s + "-" +@case.id.to_s
-			redirect_to case_path(@case)
+			
+			crowns= ["Get 3d scan", "make mould","cast","milling","oven dry"]
+			retainers =["Get 3d scan", "make mould","cast","milling","oven dry"]
+			braces = ["Get 3d scan", "make mould","cast","milling","oven dry"]
+			babies =["Get 3d scan", "make mould","cast","milling","oven dry"]
 
-	
-			#Generating QR code that carries the id of case with special word in front
-			# @qr = RQRCode::QRCode.new("qrscannertest"+ @case.id.to_s, size: 4)
-			# Wanted to save qr as a string but doent work. 
+			# Automatically create respective tasks for 
+			case @case.case_type
+
+			when 1
+				crowns.each do |c|
+					@task=@case.tasks.new(description:c)
+					@task.save
+				end
+			when 2
+				retainers.each do |r|
+					@task=@case.tasks.new(description:r)
+					@task.save
+				end
+			when 3
+				braces.each do |b|
+					@task=@case.tasks.new(description:b)
+					@task.save
+				end
+			when 4
+				babies.each do |bb|
+					@task=@case.tasks.new(description:bb)
+					@task.save
+				end
+		end
+
+			redirect_to case_path(@case)
 
 		else
 			flash[:info] = "Whoopss, something went wrong. Case was not created!"
@@ -28,6 +54,7 @@ class CasesController < ApplicationController
 	# Display page for each case
 	def show
 		@case=Case.find(params[:id])
+		@tasks = @case.tasks
 	end
 
 	def new 
