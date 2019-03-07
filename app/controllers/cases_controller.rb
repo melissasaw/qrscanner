@@ -10,7 +10,8 @@ class CasesController < ApplicationController
 		if @case.save
 
 			# if case is save, only assign serial number.
-			@case.serial_number = "ORTHO"+ @case.case_type.to_s + "-" +@case.id.to_s
+			@case.serial_number = "ORTHO"+ @case.case_type.to_s + "-" +@case.id.to_s			
+			@case.save
 			
 			crowns= ["Get 3d scan", "make mould","cast","milling","oven dry"]
 			retainers =["Get 3d scan", "make mould","cast","milling","oven dry"]
@@ -19,28 +20,27 @@ class CasesController < ApplicationController
 
 			# Automatically create respective tasks for 
 			case @case.case_type
-
-			when 1
-				crowns.each do |c|
+				when 1
+					crowns.each do |c|
 					@task=@case.tasks.new(description:c)
 					@task.save
 				end
-			when 2
-				retainers.each do |r|
+				when 2
+					retainers.each do |r|
 					@task=@case.tasks.new(description:r)
 					@task.save
 				end
-			when 3
-				braces.each do |b|
+				when 3
+					braces.each do |b|
 					@task=@case.tasks.new(description:b)
 					@task.save
 				end
-			when 4
-				babies.each do |bb|
+				when 4
+					babies.each do |bb|
 					@task=@case.tasks.new(description:bb)
 					@task.save
 				end
-		end
+			end
 
 			redirect_to case_path(@case)
 

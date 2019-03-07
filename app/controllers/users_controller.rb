@@ -61,6 +61,9 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 
 	def show
 		@user= User.find(params[:id])
+		# Cases created by user
+		@cases=@user.cases
+
 	end
 
 	def update

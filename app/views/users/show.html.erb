@@ -29,6 +29,18 @@
 <hr/>
 
 <div class="container">
-	All your cases...
+	You have created <%=@cases.length%> cases since you boarded.
+	<br/>
+	<table>
+		<%@cases.each_with_index do |c,i|%>
+		<tr>
+			<td><%=i+1%>:</td>
+			<td><%=c.serial_number%></td>
+			<td><%=link_to "View",case_path(c)%></td>
+		</tr>
+
+		<%end%>
+	</table>
+	
 </div>
 
