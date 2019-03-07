@@ -1,9 +1,10 @@
 <!-- After User Log-in, User will be directed to User show page which would be the Dashboard -->
 
-<div class="container">
-	<h2>Welcome <%=@user.first_name%></h2>
+<div class="container margin-top">
+	<h2>Welcome back <%=@user.first_name%>.</h2>
 </div>
 
+<hr/>
 
 <div class= "container thin-border-box top-margin div-width">
 	<table style= "width:100%">
@@ -16,5 +17,18 @@
 			<td><%=@user.email%></td>
 		</tr>
 	</table>
+</div>
+
+<hr/>
+
+<div class="container">
+	<%=link_to "Create a Case", new_case_path%>
+</div>
+
+
+<hr/>
+
+<div class="container">
+	All your cases...
 </div>
 

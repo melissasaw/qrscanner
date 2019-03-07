@@ -13,6 +13,7 @@
   <div class="form-group">
     <label for="position">Position</label>
     <%= form.text_field :position, class: 'form-control', placeholder: 'Position/Role' %>
+    <%= form.select :position, options_for_select([['Technician'], ['','2'],['Boobies','3'],['Babies','4']]) %>
     <small>
       Future improvements : Only verified and assigned by super admin.
     </small>

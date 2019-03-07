@@ -1,12 +1,58 @@
-<div class="container">
-
+<div class="container margin-top">
 	<!-- Trying to create profile page for user. -->
 	<h2>Case <%=@case.id%></h2>
 </div>
 
 
 <div class= "container">
+	<h3>Procedures for 
+		<%case @case.case_type%>
+			<%when 0%>
+			Sunshines
+			<%when 1%>
+			Crowns
+			<%when 2%>
+			Retainer
+			<%when 3%>
+			Brace
+			<%when 4%>
+			Babies
+		<%else%>
+			Error: case type not recognised.
+		<%end%>
+	.</h3>
+	<br/>
+
+	<%if @case.case_type == 1%>
+	Task 1: Get the digital scan <br/>
+	Task 2: Make a Mould<br/>
+	Task 3: Clean up Mould<br/>
+	Task 4: Casting<br/>
+	Task 5: Milling<br/>
+	Task 6: Oven<br/>
+
+	<%elsif @case.case_type == 2%>
+	Task 1: Add Eggs<br/>
+	Task 2: Add Flour<br/>
+	Task 3: Whisk the hell out<br/>
+	Task 4: Put it in the oven<br/>
 
 
+	<%elsif @case.case_type == 3%>
+	Task 1: Get some steel<br/>
+	Task 2: Cut steel strips<br/>
+	Task 3: Weld strips in desired shape<br/>
+	Task 4: Spray Paint<br/>
 
+	<%elsif @case.case_type = 4%>
+	Task 1: Find a partner<br/>
+	Task 2: Get drunk<br/>
+	Task 3: Search for area with complete privacy<br/>
+	Task 4: BOOM BOOM POW<br/>
+	Task 5: Take a pregnancy test<br/>
+	Task 6: Repeat Step 1-5 if lucky<br/>
+
+	<%else%>
+	No detailed procedure assigned to this Task.
+	<%end%>
 </div>
