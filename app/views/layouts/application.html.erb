@@ -26,14 +26,45 @@
   </head>
 
   <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light navbar-color">
+      <!-- Logo to the nav bar -->
+    <a class="navbar-brand" href="/">
+      <img src="/" height="55" class="d-inline-block align-top" alt=""> </a>  
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <% if logged_in? %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/users/<%=current_user.id%>">Profile<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/">Whatever Link<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link">
+              <%=button_to "Sign Out",log_out_path%>
+            </div>
+          </li>
+          <%else%>
+            <%=link_to "Sign Up", new_user_path%>
+          <%end%>
+      </ul>
+    </div>
+  </nav>
+
     <!-- This is for flashing status if you ever need it :) -->
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
-  <%if logged_in? == true%>
-    <%=button_to "Sign Out",log_out_path%>
-  <%end%>
     <%= yield %>
   </body>
 </html>

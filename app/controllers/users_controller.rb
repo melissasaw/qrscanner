@@ -37,7 +37,7 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 			if user.authenticate(input_password)
 				# create session
 				session[:user_id]=user.id
-				redirect_to root_path
+				redirect_to user_path(user)
 				flash[:success] = "Successful Log-in"
 			else
 				flash[:info] ="Wrong password. Please try again."
@@ -60,6 +60,7 @@ skip_before_action :verify_authenticity_token, :only => [:log_in]
 	end
 
 	def show
+		@user= User.find(params[:id])
 	end
 
 	def update
